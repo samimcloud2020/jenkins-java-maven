@@ -7,6 +7,7 @@ pipeline {
             // Use Maven version 3.8.2
             maven 'apache-maven-3.9.0'
             // Use a custom label for the agent
+            label 'maven-agent'
             
         }
     }
