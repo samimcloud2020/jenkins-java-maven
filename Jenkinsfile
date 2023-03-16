@@ -8,13 +8,12 @@ pipeline {
             }
         }
         
-        
-        stage('build'){
-            withMaven(maven: 'mvn') {
-                sh "mvn clean package"
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
             }
-         }
-
+        }
+        
         stage('Test') {
             steps {
                 sh 'mvn test'
@@ -26,7 +25,6 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
-        
-        
+
     }
 }
